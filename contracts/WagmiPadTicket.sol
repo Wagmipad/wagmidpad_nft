@@ -56,8 +56,8 @@ contract WagmiPadTicket is ERC404 {
 
             string memory jsonPreImage = string.concat(
                 string.concat(
-                    string.concat('{"name": "Bera Ticket #', Strings.toString(id)),
-                    '","description":"A collection of 100,000 Replicants enabled by ERC404, an experimental token standard.","external_url":"https://pandora.build","image":"'
+                    string.concat('{"name": "WagmiPad Ticket #', Strings.toString(id)),
+                    '","description":"A collection of 100,000 Replicants enabled by ERC404, an experimental token standard.","external_url":"https://wagmipad.org","image":"'
                 ),
                 string.concat(dataURI, image)
             );
