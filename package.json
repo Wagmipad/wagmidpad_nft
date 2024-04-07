@@ -1,0 +1,22 @@
+{
+  "name": "wagmipad-ticket",
+  "version": "1.0.0",
+  "description": "WagmiPad Ticket ERC404 Smart Contracts",
+  "main": "index.js",
+  "scripts": { 
+    "compile": "npx hardhat compile",
+    "node": "npx hardhat node",
+    "deploy:localhost": "npx hardhat run scripts/deploy.ts --network localhost",
+    "deploy:berachain": "npx hardhat run scripts/deploy.ts --network berachainTestnet",
+    "verify": "npx hardhat verify --network berachainTestnet"
+  },  
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.2"
+  },
+  "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2"
+  }
+}
