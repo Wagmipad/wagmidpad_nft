@@ -8,10 +8,16 @@ contract WagmiPadTicket is ERC404 {
     string public dataURI;
     string public baseTokenURI;
 
+    error AlreadyMinted();
+    /// @dev Wallets that already minted the ticket
+    mapping(address => bool) public mintedWallets;
+
+    
+
     constructor(
         address _owner
-    ) ERC404("WagmiPad Ticket", "WPTKT", 18, 100000, _owner) {
-        balanceOf[_owner] = 100000 * 10 ** 18;
+    ) ERC404("WagmiPad Ticket", "WPTKT", 18, 0, _owner) {
+        //balanceOf[_owner] = 100000 * 10 ** 18;
     }
 
     function setDataURI(string memory _dataURI) public onlyOwner {
@@ -57,7 +63,7 @@ contract WagmiPadTicket is ERC404 {
             string memory jsonPreImage = string.concat(
                 string.concat(
                     string.concat('{"name": "WagmiPad Ticket #', Strings.toString(id)),
-                    '","description":"A collection of 100,000 Replicants enabled by ERC404, an experimental token standard.","external_url":"https://wagmipad.org","image":"'
+                    '","description":"A collection of WagmiPad Ticket enabled by ERC404, an experimental token standard.","external_url":"https://wagmipad.org","image":"'
                 ),
                 string.concat(dataURI, image)
             );
@@ -76,5 +82,21 @@ contract WagmiPadTicket is ERC404 {
                     )
                 );
         }
+    }
+
+    function mint() public returns (bool) {
+        
+        if (mintedWallets[msg.sender]) {
+            revert AlreadyMinted();
+        }
+
+        mintedWallets[msg.sender] = true;
+        // Increase erc20 balance
+        balanceOf[msg.sender] += _getUnit();
+
+        _mint(msg.sender);
+
+        emit ERC20Transfer(address(0), msg.sender, _getUnit());
+        return true;
     }
 }
