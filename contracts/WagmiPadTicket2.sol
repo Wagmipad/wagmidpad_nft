@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "./ERC404.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract WagmiPadTicket is ERC404 {
+contract WagmiPadTicket2 is ERC404 {
     string public dataURI;
     string public baseTokenURI;
 
@@ -16,7 +16,7 @@ contract WagmiPadTicket is ERC404 {
 
     constructor(
         address _owner
-    ) ERC404("WagmiPad Ticket", "WPTKT", 18, 0, _owner) {
+    ) ERC404("WagmiPad Ticket 2", "WPTKT2", 18, 0, _owner) {
         //balanceOf[_owner] = 100000 * 10 ** 18;
     }
 
@@ -44,25 +44,25 @@ contract WagmiPadTicket is ERC404 {
             string memory color;
 
             if (seed <= 100) {
-                image = "1.jpg";
+                image = "6.png";
                 color = "Blue";
             } else if (seed <= 160) {
-                image = "2.jpg";
+                image = "7.png";
                 color = "Green";
             } else if (seed <= 210) {
-                image = "3.jpg";
+                image = "8.png";
                 color = "Yellow";
             } else if (seed <= 240) {
-                image = "4.jpg";
+                image = "9.png";
                 color = "Red";
             } else if (seed <= 255) {
-                image = "5.jpg";
+                image = "10.png";
                 color = "Brown";
             }
 
             string memory jsonPreImage = string.concat(
                 string.concat(
-                    string.concat('{"name": "WagmiPad Ticket #', Strings.toString(id)),
+                    string.concat('{"name": "WagmiPad Ticket Series 2 #', Strings.toString(id)),
                     '","description":"A collection of WagmiPad Ticket enabled by ERC404, an experimental token standard.","external_url":"https://wagmipad.org","image":"'
                 ),
                 string.concat(dataURI, image)

@@ -8,6 +8,8 @@
     "node": "npx hardhat node",
     "deploy:localhost": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy:berachain": "npx hardhat run scripts/deploy.ts --network berachainTestnet",
+    "deploy2:berachain": "npx hardhat run scripts/deploy2.ts --network berachainTestnet",
+    "deploy3:berachain": "npx hardhat run scripts/deploy3.ts --network berachainTestnet",
     "verify": "npx hardhat verify --network berachainTestnet"
   },  
   "devDependencies": {

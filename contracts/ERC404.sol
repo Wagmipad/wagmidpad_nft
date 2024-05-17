@@ -111,7 +111,7 @@ abstract contract ERC404 is Ownable {
     uint8 public immutable decimals;
 
     /// @dev Total supply in fractionalized representation
-    uint256 public immutable totalSupply;
+    uint256 public totalSupply;
 
     /// @dev Current mint counter, monotonically increasing to ensure accurate ownership
     uint256 public minted;
